@@ -1,0 +1,27 @@
+{
+  "name": "code-snippets",
+  "version": "0.0.1",
+  "description": "My code snippets journey",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardforjoe/ts-code-snippets.git"
+  },
+  "keywords": [],
+  "author": "Richard Forjoe Twitter: @rforjoe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardforjoe/ts-code-snippets/issues"
+  },
+  "homepage": "https://github.com/richardforjoe/ts-code-snippets#readme",
+  "devDependencies": {
+    "@types/node": "^14.0.27",
+    "typescript": "^3.9.7"
+  }
+}

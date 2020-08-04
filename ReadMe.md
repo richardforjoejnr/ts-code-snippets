@@ -32,3 +32,35 @@ $ git push -u origin master
 Problems: “fatal: refusing to merge unrelated histories”
 Solution: git pull origin master --allow-unrelated-histories
 
+Setup package json
+---------------------
+
+npm init -y
+npm install typescript --save-dev
+npm install @types/node --save-dev
+
+npx tsc --init --rootDir src --outDir build \
+--esModuleInterop --resolveJsonModule --lib es6 \
+--module commonjs --allowJs true --noImplicitAny true
+
+mkdir src
+touch src/index.ts
+
+npx tsc
+
+Useful configurations and scripts
+---------------------
+
+npm install --save-dev ts-node nodemon
+Add a nodemon.json config - update with nodemon.json 
+add script to package.json - "start:dev": "nodemon"
+
+Add a build script
+---------------------
+
+npm install --save-dev rimraf
+add build script & production setup script  
+"build": "rimraf ./build && tsc
+"start": "npm run build && node build/index.js"
+
+source: https://khalilstemmler.com/blogs/typescript/node-starter-project/
