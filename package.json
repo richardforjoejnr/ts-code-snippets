@@ -10,7 +10,8 @@
     "start": "npm run build && node build/index.js",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
-    "apimocker": "node ./node_modules/apimocker/bin/apimocker.js --config ./src/how-to-setup-api-mocker/apimocker/apimocker.json"
+    "apimocker": "node ./node_modules/apimocker/bin/apimocker.js --config ./src/how-to-setup-api-mocker/apimocker/apimocker.json",
+    "xnode": "sh ./src/utils/npm-remove-nodemodules.sh"
   },
   "repository": {
     "type": "git",

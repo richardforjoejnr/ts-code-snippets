@@ -1,6 +1,6 @@
 {
-    "mockDirectory": "src/how-to-setup-api-mocker/mockDirectory/",
-    "staticDirectory": "src/how-to-setup-api-mocker/staticDirectory/",
+    "mockDirectory": "src/how-to-setup-dynamic-api/mockDirectory/",
+    "staticDirectory": "src/how-to-setup-dynamic-api/staticDirectory/",
     "staticPath": "/",
     "basePath": "/",
     "quite": true,
@@ -14,11 +14,11 @@
         "my-custom-header"
     ],
     "webServices": {
-        "premierleague": {
+        "dynamicapi": {
             "replace": {
                 "feedsUri": "header"
             },
-            "mockFile": "NORSOUMatch.json",
+            "mockFile": "dynamic.json",
             "latency": 20,
             "verbs": [
                 "get"
