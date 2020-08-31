@@ -1,6 +1,7 @@
 import fs from 'fs';
+import {noInteractionWait} from './../utils/noInteractionWait'
 
-// Files for football
+// Data needed for dynamic updating of json file
 import rawdata from '../how-to-setup-dynamic-api/mockDirectory/initial.json';
 import originalData from '../how-to-setup-dynamic-api/mockDirectory/dynamic.json';
 const dynamicDataPath = `${process.cwd()}/src/how-to-setup-dynamic-api/mockDirectory/dynamic.json`;
@@ -33,7 +34,7 @@ export async function startPolling(): Promise<void>{
     // add 12 new events based on the polling interval
        for (let i = 0; i < 12; i++) {
             await addNewEvent(i);
-        await delay(pollingInterval);
+        await noInteractionWait(pollingInterval);
       }
 
        // reset pollingfile data to Original
@@ -93,6 +94,3 @@ async function addNewEvent(i:number){
 
 // }
 
-function delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-}

@@ -23,6 +23,16 @@
             "verbs": [
                 "get"
             ]
+        },
+        "Ping": {
+            "replace": {
+                "feedsUri": "header"
+            },
+            "mockFile": "ping.json",
+            "latency": 20,
+            "verbs": [
+                "post"
+            ]
         }
     }
 }

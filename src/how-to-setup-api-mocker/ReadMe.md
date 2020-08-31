@@ -7,7 +7,7 @@ Setup from scratch
 npm install apimocker --save-dev
 Create the following folders:
 mockDirectory: Create your mock jsons in this folder.
-staticDirectory: Not sure what this is for, I'm assuming its for static files eg images etc
+staticDirectory: Used for mocking static files like images etc . If data in your json links to static file, you can mock that using this.
 apimocker: copy the apimocker.json file and amend accordingly
 
 
