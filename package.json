@@ -4,6 +4,7 @@
   "description": "My code snippets journey",
   "main": "index.js",
   "scripts": {
+    "commit": "git-cz",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon",
     "build": "rimraf ./build && tsc",
@@ -30,6 +31,7 @@
     "@typescript-eslint/parser": "^3.10.1",
     "apimocker": "^1.1.4",
     "eslint": "^7.7.0",
+    "git-cz": "^4.7.1",
     "nodemon": "^2.0.4",
     "rimraf": "^3.0.2",
     "ts-node": "^9.0.0",
