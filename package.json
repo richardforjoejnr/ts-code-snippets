@@ -12,7 +12,8 @@
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
     "apimocker": "node ./node_modules/apimocker/bin/apimocker.js --config ./src/how-to-setup-api-mocker/apimocker/apimocker.json",
-    "xnode": "sh ./src/utils/npm-remove-nodemodules.sh"
+    "xnode": "sh ./src/utils/npm-remove-nodemodules.sh",
+    "stub": "ts-node src/how-to-setup-dynamic-api-using-express/server.start.ts"
   },
   "repository": {
     "type": "git",
@@ -36,5 +37,10 @@
     "rimraf": "^3.0.2",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@types/apimocker": "^1.1.1",
+    "apollo-server": "^2.17.0",
+    "graphql": "^15.3.0"
   }
 }

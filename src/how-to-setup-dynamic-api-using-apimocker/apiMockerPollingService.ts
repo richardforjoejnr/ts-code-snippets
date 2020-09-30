@@ -1,15 +1,27 @@
 import fs from 'fs';
-import {noInteractionWait} from './../utils/noInteractionWait'
+import {noInteractionWait} from '../utils/noInteractionWait'
+import * as apiMocker from 'apimocker';
 
 // Data needed for dynamic updating of json file
-import rawdata from '../how-to-setup-dynamic-api/mockDirectory/initial.json';
-import originalData from '../how-to-setup-dynamic-api/mockDirectory/dynamic.json';
+import rawdata from './mockDirectory/initial.json';
+import originalData from './mockDirectory/dynamic.json';
 const dynamicDataPath = `${process.cwd()}/src/how-to-setup-dynamic-api/mockDirectory/dynamic.json`;
+const apiMockerConfigJsonPath = `${process.cwd()}/src/how-to-setup-dynamic-api/apimocker/apimocker.json`;
 
+const mocker = apiMocker.createServer({ quiet: true }).setConfigFile(apiMockerConfigJsonPath);
 
+export async function startMocker(): Promise<void> {
+
+    await mocker.start(7878);
+    await startPolling();
+}
+
+export async function stopMocker(): Promise<void> {
+
+    await mocker.stop();
+}
 
 export async function startPolling(): Promise<void>{
-
 
        // get initial polling data
 
