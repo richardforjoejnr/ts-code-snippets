@@ -40,8 +40,8 @@ export const start = async (): Promise<any> => {
         }
         
     });
-    // Start polling
-    await startPolling(10,10000);
+    // Start polling - number of items & polling interval in ms
+    await startPolling(10,5000);
 };
 
 export const stop = async (): Promise<any> => {
