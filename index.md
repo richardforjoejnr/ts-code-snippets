@@ -1,37 +1,106 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/richardforjoe/ts-code-snippets/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Table of contents
 
-### Markdown
+- [Quick start](#quick-start)
+- [Status](#status)
+- [What's included](#whats-included)
+- [Bugs and feature requests](#bugs-and-feature-requests)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [Community](#community)
+- [Versioning](#versioning)
+- [Creators](#creators)
+- [Thanks](#thanks)
+- [Copyright and license](#copyright-and-license)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+## Quick start
 
-# Header 1
-## Header 2
-### Header 3
+Several quick start options are available:
 
-- Bulleted
-- List
+- Clone the repo: `git@github.com:richardforjoe/ts-code-snippets.git`
+- Install with [npm](https://www.npmjs.com/): `npm install`
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+## Status
+Completed snippets:
 
-[Link](url) and ![Image](src)
+how-to-setup-dynamic-api-using-express
+
+Pending snippets:
+
+how-to-setup-dynamic-api-using-apimocker
+
+how-to-setup-api-mocker
+
+how-to-mock-websocket
+
+hot-to-mock-graphql
+
+
+## What's included
+
+Within the download you'll find the following directories and files:
+
+```npm run polling
+src
+└── how-to-setup-dynamic-api-using-express/
+    ├── mocks/
+    │   ├── OriginalData.json
+    │   ├── polledResponse.json
+    │   apiDynamicPollingService.ts
+    ├── server.start.ts
+    └── server.ts
+    
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+## Bugs and feature requests
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/richardforjoe/ts-code-snippets/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Have a bug or a feature request? Please first read the [issue guidelines]
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Documentation
+
+TBC
+
+### Running documentation locally
+
+1. Run `npm install` to install the Node.js dependencies
+2. Amend startPolling(numberOfItems, pollingInterval) in server.ts line 45 - This sets how many items should be injected and at what intervals in milliseconds - ms
+2. Run `npm run polling` Express should setup an endpoint.
+4. Open `http://localhost:8055/endpoint?id=TEST` in your browser, and observer the json is updated every 5000ms(5seconds) upon refresh.
+
+
+### Documentation for previous releases
+
+
+## Contributing
+
+maintained by [Richard Forjoe](https://github.com/richardforjoe). Looking for contributors to add snippets for mocking api's
+
+
+## Community
+
+- Follow [@rforjoe on Twitter](https://twitter.com/rforjoe).
+- Instagram for my photography [Street photography](https://www.instagram.com/forjoe_streets/).
+- Linkedin (https://www.linkedin.com/in/richardforjoe/)
+- Website (http://rforjoe.mystrikingly.com/blog)
+
+
+## Versioning
+
+
+## Creators
+
+**Richard Forjoe**
+
+
+## Thanks
+
+## Sponsors
+
+## Copyright and license
+
+Code and documentation copyright 2011–2020 the [Richard Forjoe](https://github.com/richardforjoe) Code released under the [MIT License]. Docs released under [Creative Commons](https://creativecommons.org/licenses/by/3.0/).
