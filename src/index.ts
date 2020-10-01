@@ -1,12 +1,12 @@
 console.log('Hello world!')
 
-const apiMocker = require('apimocker')
+import { createServer, start, stop} from 'apimocker';
 
 //////////////////////////////////////////////////////////////////////////////////
 // Mock api config - sets path of input files
 //////////////////////////////////////////////////////////////////////////////////
 const apiMockerConfigJsonPath = `${process.cwd()}/src/how-to-setup-api-mocker/apimocker/apimocker.json`;
-const mocker = apiMocker.createServer({ quiet: true }).setConfigFile(apiMockerConfigJsonPath);
+createServer({ quiet: true }).setConfigFile(apiMockerConfigJsonPath);
 
-mocker.start(null);
-mocker.stop();
+start(7575);
+stop();

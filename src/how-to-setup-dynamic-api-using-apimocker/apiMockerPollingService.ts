@@ -97,12 +97,3 @@ async function addNewEvent(i:number){
 }
 
 
-// export async function replaceJsonNewEvent() {
-
-//     // update json
-//     const url = 'http://localhost:7878/admin/setMock?verb=get&serviceUrl=premierleague&mockFile=footballPollingNewEvent1.json';
-//     // await http.fetchJson(url, 'JSON');
-
-
-// }
-

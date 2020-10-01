@@ -1,9 +1,35 @@
 Initial 
 ====================
 
+Script overview
+---------------------
+npm run start:dev
+Starts the application in development using nodemon and ts-node to do cold reloading.
+
+npm run build
+Builds the app at build, cleaning the folder first.
+
+npm run start
+Starts the app in production by first building the project with npm run build, and then executing the compiled JavaScript at build/index.js
+
+npm run polling
+Starts Express server and runs function to dynamically update json response every 5 seconds - endpoint: http://localhost:8055/endpoint?id=TEST
+
+Snippets
+---------------------
+Completed
+
+how-to-setup-dynamic-api-using-express
+
+Pending
+how-to-setup-dynamic-api-using-apimocker
+how-to-setup-api-mocker
+how-to-mock-websocket
+hot-to-mock-graphql
+
 A new repo from scratch
 ---------------------
-
+Thanks to https://kbroman.org/ for the below - Guide for setting up a new repo from scratch
 
 Say you’ve just got some data from a collaborator and are about to start exploring it.
 
@@ -65,16 +91,3 @@ add build script & production setup script
 
 source: https://khalilstemmler.com/blogs/typescript/node-starter-project/
 
-Script overview
----------------------
-npm run start:dev
-Starts the application in development using nodemon and ts-node to do cold reloading.
-
-npm run build
-Builds the app at build, cleaning the folder first.
-
-npm run start
-Starts the app in production by first building the project with npm run build, and then executing the compiled JavaScript at build/index.js
-
-npm run polling
-Starts Express server and runs function to dynamically update json response every 5 seconds - endpoint: http://localhost:8055/endpoint?id=TEST
