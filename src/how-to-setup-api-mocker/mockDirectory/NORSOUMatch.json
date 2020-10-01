@@ -1,0 +1,28 @@
+{
+    "league": "Premier LEague",
+    "title": "Southampton at Norwich City",
+    "teams": {
+        "4460929109807135168": {
+            "teamName": "Norwich City",
+            "teamAbbreviation": "NOR",
+            "logo": "http://localhost:7878/assets/6559085583478933119.png"
+        },
+        "5014162150526798168": {
+            "teamName": "Southampton",
+            "teamAbbreviation": "SOU",
+            "logo": "http://localhost:7878/assets/7942295673224225119.png"
+        }
+    },
+    "event": [
+        {
+            "display": {
+                "title": "Kick Off",
+                "shortTitle": "Kick Off",
+                "description": "Kick Off by Norwich",
+                "teamId": "4460929109807135168",
+                "logo": "http://localhost:7878/assets/6559085583478933119.png",
+                "scoretext": null
+            }
+        }
+    ]
+}

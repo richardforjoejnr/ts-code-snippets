@@ -1,0 +1,28 @@
+{
+    "mockDirectory": "src/how-to-setup-dynamic-api/mockDirectory/",
+    "staticDirectory": "src/how-to-setup-dynamic-api/staticDirectory/",
+    "staticPath": "/",
+    "basePath": "/",
+    "quite": true,
+    "port": 7878,
+    "latency": 50,
+    "allowedDomains": [
+        "*"
+    ],
+    "allowedHeaders": [
+        "Content-Type",
+        "my-custom-header"
+    ],
+    "webServices": {
+        "dynamicapi": {
+            "replace": {
+                "feedsUri": "header"
+            },
+            "mockFile": "dynamic.json",
+            "latency": 20,
+            "verbs": [
+                "get"
+            ]
+        }
+    }
+}

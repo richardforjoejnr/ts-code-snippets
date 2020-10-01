@@ -1,0 +1,38 @@
+{
+    "mockDirectory": "src/how-to-setup-api-mocker/mockDirectory/",
+    "staticDirectory": "src/how-to-setup-api-mocker/staticDirectory/",
+    "staticPath": "/",
+    "basePath": "/",
+    "quite": true,
+    "port": 7878,
+    "latency": 50,
+    "allowedDomains": [
+        "*"
+    ],
+    "allowedHeaders": [
+        "Content-Type",
+        "my-custom-header"
+    ],
+    "webServices": {
+        "premierleague": {
+            "replace": {
+                "feedsUri": "header"
+            },
+            "mockFile": "NORSOUMatch.json",
+            "latency": 20,
+            "verbs": [
+                "get"
+            ]
+        },
+        "Ping": {
+            "replace": {
+                "feedsUri": "header"
+            },
+            "mockFile": "ping.json",
+            "latency": 20,
+            "verbs": [
+                "post"
+            ]
+        }
+    }
+}
