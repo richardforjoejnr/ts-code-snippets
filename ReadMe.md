@@ -1,4 +1,4 @@
-Initial - Thanks to https://kbroman.org/ for this - Setting up a new repo from scratch
+Thanks to https://kbroman.org/ for this - Setting up a new repo from scratch
 ====================
 
 A new repo from scratch
