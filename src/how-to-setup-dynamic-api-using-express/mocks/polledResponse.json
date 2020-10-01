@@ -1,0 +1,26 @@
+{
+    "data": [
+        {
+            "game_id": 2172,
+            "date_start": "2015-06-08T19:30:00-04:00",
+            "game_number": 1,
+            "month": 1,
+            "season": 2015,
+            "attendance": 0,
+            "venue": {
+                "name": "Tim Hortons Field"
+            },
+            
+            "team_id": 6,
+            "location": "Ottawa",
+            "nickname": "Redblacks",
+            "score": 10,
+            "is_at_home": false,
+            "is_winner": false
+            }
+        
+    ],
+    "meta": {
+        "copyright": "Copyright 2020 Richard Forjoe @rforjoe - Twitter"
+    }
+}
