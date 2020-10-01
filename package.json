@@ -13,7 +13,7 @@
     "lint-and-fix": "eslint . --ext .ts --fix",
     "apimocker": "node ./node_modules/apimocker/bin/apimocker.js --config ./src/how-to-setup-api-mocker/apimocker/apimocker.json",
     "xnode": "sh ./src/utils/npm-remove-nodemodules.sh",
-    "stub": "ts-node src/how-to-setup-dynamic-api-using-express/server.start.ts"
+    "polling": "ts-node src/how-to-setup-dynamic-api-using-express/server.start.ts"
   },
   "repository": {
     "type": "git",

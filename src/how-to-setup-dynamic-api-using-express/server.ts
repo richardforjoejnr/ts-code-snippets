@@ -41,6 +41,7 @@ export const start = async (): Promise<any> => {
         
     });
     // Start polling - number of items & polling interval in ms
+    // endpoint: http://localhost:8055/endpoint?id=TEST
     await startPolling(10,5000);
 };
 
