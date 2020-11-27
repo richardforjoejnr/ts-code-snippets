@@ -3,9 +3,9 @@ import faker from 'faker'; // https://github.com/marak/Faker.js/
 
 
 // Mock files
-import originalPollingData from '../how-to-setup-dynamic-api-using-express/mocks/OriginalData.json';
-import rawdata from '../how-to-setup-dynamic-api-using-express/mocks/polledResponse.json';
-const pollingPath = `${process.cwd()}/src/how-to-setup-dynamic-api-using-express/mocks/polledResponse.json`;
+import originalPollingData from './mocks/OriginalData.json';
+import rawdata from './mocks/polledResponse.json';
+const pollingPath = `${process.cwd()}/src/how-to-setup-api-using-express/dynamic-rest-api/mocks/polledResponse.json`;
 
 
 
