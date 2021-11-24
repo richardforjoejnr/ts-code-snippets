@@ -3,9 +3,9 @@
 
 let analyticsReport = [];
 
-export const resetReports = () => {
+Cypress.Commands.add('resetReports', () => {
   analyticsReport = [];
-};
+});
 
 Cypress.Commands.add('startAdobeReporting', (alias) => {
   const reportingUrl = 'https://myglamm.sc.omtrdc.net/b/ss/myglammprod/**';
