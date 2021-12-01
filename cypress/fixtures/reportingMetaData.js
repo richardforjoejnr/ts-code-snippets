@@ -14,3 +14,12 @@ export const surveyPageInfoPageLoadData = {
   c40: 'mobile website',
   c1: 'surveypage',
 }
+
+export const samplePostData = [
+  'AQB=1',
+  'pageName=web|kits|product listing page',
+  'v23=477',
+  'c46=kits',
+  'c3=home',
+  'c4=web|home|homepage',
+]
