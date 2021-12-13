@@ -17,11 +17,11 @@ describe('example reporting tests', () => {
     cy.assertAdobeDataFromUrl(myglamm, homePageInfoPageLoadData,1)
   })
 
-  it('Assert Pageload data after clicking the survey', () => {
-    cy.get('[alt="SK Survey "]').click();
-    cy.assertAdobeDataFromUrl(myglamm, homePageInfoPageLoadData,2)
-    cy.assertAdobeDataFromUrl(myglamm, surveyPageInfoPageLoadData,3)
-  })
+  // it('Assert Pageload data after clicking the survey', () => {
+  //   cy.get('[alt="SK Survey "]').click();
+  //   cy.assertAdobeDataFromUrl(myglamm, homePageInfoPageLoadData,2)
+  //   cy.assertAdobeDataFromUrl(myglamm, surveyPageInfoPageLoadData,3)
+  // })
 
   
 
