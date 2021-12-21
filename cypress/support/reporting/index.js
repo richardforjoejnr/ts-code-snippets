@@ -20,7 +20,14 @@ Cypress.Commands.add('startAdobeReporting', (alias) => {
 // Method to check each Item in the array and fails if any item does not match - Currently being used
 const checkEachItems = (assert, data) => {
   Object.keys(assert).map((key) => {
-    expect(data[key]).to.equal(assert[key]);
+    if(assert[key] instanceof RegExp) {
+      console.log("REGEX", data[key], assert[key])
+
+      expect(data[key]).to.match(assert[key])
+    } else {
+      expect(data[key]).to.equal(assert[key]);
+    }
+    
     return null;
   });
 };
