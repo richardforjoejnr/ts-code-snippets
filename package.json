@@ -15,7 +15,10 @@
     "lint-and-fix": "eslint . --ext .ts --fix",
     "apimocker": "node ./node_modules/apimocker/bin/apimocker.js --config ./src/how-to-setup-api-mocker/apimocker/apimocker.json",
     "xnode": "sh ./src/utils/npm-remove-nodemodules.sh",
-    "polling": "ts-node src/how-to-setup-api-using-express/server.start.ts"
+    "polling": "ts-node src/how-to-setup-api-using-express/server.start.ts",
+    "generateTex": "picklesdoc tex ./cypress/integration/ ./my-document.tex --title='Features Report'",
+    "generatePDF": "yarn generateTex; echo pdf| node ./src/feature-file-to-pdf/featurefile-to-pdf.js"
+
   },
   "repository": {
     "type": "git",
@@ -40,6 +43,7 @@
     "eslint": "^7.7.0",
     "faker": "^5.1.0",
     "git-cz": "^4.7.1",
+    "node-pandoc": "^0.3.0",
     "node-schedule": "^2.0.0",
     "nodemon": "^2.0.4",
     "rimraf": "^3.0.2",
@@ -49,6 +53,7 @@
   "dependencies": {
     "@types/apimocker": "^1.1.1",
     "apollo-server": "^2.17.0",
-    "graphql": "^15.3.0"
+    "graphql": "^15.3.0",
+    "pdflatex": "^0.0.1"
   }
 }
