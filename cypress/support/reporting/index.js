@@ -4,40 +4,59 @@
 
 let analyticsReportObject = {};
 
-Cypress.Commands.add('resetReports', () => {
+Cypress.Commands.add("resetReports", () => {
   analyticsReportObject = {};
 });
 
-Cypress.Commands.add('startAdobeReporting', (alias) => {
-  const reportingUrl = 'https://myglamm.sc.omtrdc.net/b/ss/myglammprod/**';
+Cypress.Commands.add("startAdobeReporting", (alias) => {
+  const reportingUrl = "https://myglamm.sc.omtrdc.net/b/ss/myglammprod/**";
   return cy
-    .intercept('GET', reportingUrl, (req) => {
-      if (req.query.hasOwnProperty('pageName') && req.query.hasOwnProperty('events')) {
-        const nameObject = `${req.query.pageName}`;
-        analyticsReportObject[nameObject] = req.query;
-      } else if (req.query.hasOwnProperty(otherProperty)) {
-        const nameObject = req.query[otherProperty];
-        analyticsReportObject[nameObject] = req.query;
-      } else {
-        analyticsReportObject[Object.keys(analyticsReportObject).length + 1] = req.query;
+    .intercept(reportingUrl, (req) => {
+      let data;
+
+      if (req.method === "POST") {
+        const rawRequestBody = req.body.toString();
+        const obj = Object.fromEntries(new URLSearchParams(rawRequestBody));
+        data = obj;
+        console.log("POST", data);
       }
-      console.log('CAPTURED-REPORTS', analyticsReportObject);
+
+      if (req.method === "GET") {
+        data = req.query;
+        console.log("GET", data);
+      }
+
+      if (data.hasOwnProperty("pageName") && data.hasOwnProperty("events")) {
+        const nameObject = `${data.pageName}`;
+        analyticsReportObject[nameObject] = data;
+      } else if (data.hasOwnProperty(otherProperty)) {
+        const nameObject = data[otherProperty];
+        analyticsReportObject[nameObject] = data;
+      } else {
+        analyticsReportObject[Object.keys(analyticsReportObject).length + 1] =
+          data;
+      }
+      console.log("CAPTURED-REPORTS", analyticsReportObject);
     })
     .as(alias);
 });
 
-Cypress.Commands.add('waitForAdobeCall', (objectName, timeoutValue = 2000) => {
+Cypress.Commands.add("waitForAdobeCall", (objectName, timeoutValue = 10000) => {
   const startTime = performance.now();
   function waitObject() {
     return new Cypress.Promise((resolve) => {
       function checkObject() {
         if (analyticsReportObject.hasOwnProperty(objectName)) {
           cy.log(
-            `Call ${objectName} arrived after: ${(performance.now() - startTime).toFixed(2)} ms`,
+            `Call ${objectName} arrived after: ${(
+              performance.now() - startTime
+            ).toFixed(2)} ms`
           );
-          resolve('Adobe Call arrived');
+          resolve("Adobe Call arrived");
         } else if (performance.now() - startTime >= timeoutValue) {
-          resolve(`Adobe Call ${objectName} did not arrive after ${timeoutValue} ms`);
+          resolve(
+            `Adobe Call ${objectName} did not arrive after ${timeoutValue} ms`
+          );
         } else {
           setTimeout(checkObject, 10);
         }
@@ -47,7 +66,7 @@ Cypress.Commands.add('waitForAdobeCall', (objectName, timeoutValue = 2000) => {
   }
   cy.wrap(null).then({ timeout: timeoutValue + 1000 }, () => {
     return waitObject().then((str) => {
-      expect(str).to.eq('Adobe Call arrived');
+      expect(str).to.eq("Adobe Call arrived");
     });
   });
 });
@@ -55,14 +74,14 @@ Cypress.Commands.add('waitForAdobeCall', (objectName, timeoutValue = 2000) => {
 // Method to check each Item in the array and fails if any item does not match - Currently being used
 const checkEachItems = (assert, data) => {
   Object.keys(assert).map((key) => {
-    if(assert[key] instanceof RegExp) {
-      console.log("REGEX", data[key], assert[key])
+    if (assert[key] instanceof RegExp) {
+      console.log("REGEX", data[key], assert[key]);
 
-      expect(data[key]).to.match(assert[key])
+      expect(data[key]).to.match(assert[key]);
     } else {
       expect(data[key]).to.equal(assert[key]);
     }
-    
+
     return null;
   });
 };
@@ -71,7 +90,9 @@ const checkEachItems = (assert, data) => {
 const checkAllItems = (assert, data) => {
   if (data === undefined)
     throw new Error(
-      `Following Object ${assert.pageName || JSON.stringify(assert)} does not match any adobe call`,
+      `Following Object ${
+        assert.pageName || JSON.stringify(assert)
+      } does not match any adobe call`
     );
   const failedItemsList = [];
   Object.keys(assert).map((key) => {
@@ -90,7 +111,7 @@ const checkAllItems = (assert, data) => {
 // method that converts the url data into an array of strings using regex
 // aliasArray needs to be in this format [`@${resetPin}`] || [`@${resetPin}`,`@${resetPin}`]
 Cypress.Commands.add(
-  'assertAdobeDataFromUrl',
+  "assertAdobeDataFromUrl",
   (alias, assert, reportNumber, toggleCheckEachItem = true) => {
     return cy.wait(`@${alias}`).then(() => {
       toggleCheckEachItem
@@ -98,7 +119,7 @@ Cypress.Commands.add(
         : checkAllItems(assert, analyticsReportObject[reportNumber]);
       // checkEachItems(assert, values);
     });
-  },
+  }
 );
 
 const mergeAdobeObjects = (MainJsonObject, AddOnObject) => {
@@ -110,10 +131,19 @@ const mergeAdobeObjects = (MainJsonObject, AddOnObject) => {
       MainJsonObject[key] = AddOnObject[key];
     }
     if (Array.isArray(AddOnObject[key]) && Array.isArray(MainJsonObject[key])) {
-      MainJsonObject[key] = mergeAdobeObjects(MainJsonObject[key], AddOnObject[key]);
+      MainJsonObject[key] = mergeAdobeObjects(
+        MainJsonObject[key],
+        AddOnObject[key]
+      );
     }
-    if (typeof AddOnObject[key] === 'object' && typeof MainJsonObject[key] === 'object') {
-      MainJsonObject[key] = mergeAdobeObjects(MainJsonObject[key], AddOnObject[key]);
+    if (
+      typeof AddOnObject[key] === "object" &&
+      typeof MainJsonObject[key] === "object"
+    ) {
+      MainJsonObject[key] = mergeAdobeObjects(
+        MainJsonObject[key],
+        AddOnObject[key]
+      );
     }
     return null;
   });
@@ -121,21 +151,21 @@ const mergeAdobeObjects = (MainJsonObject, AddOnObject) => {
 };
 
 Cypress.Commands.add(
-  'assertAdobeDataVariables',
+  "assertAdobeDataVariables",
   (
     alias,
     mainAnalyticsObject,
     specificAnalyticsAttributes,
-    { reportNumber = null, otherProperty = 'aaaaaa', timeOut } = {},
+    { reportNumber = null, otherProperty = "aaaaaa", timeOut } = {}
   ) => {
     const mainAnalyticsObjectToValidate = mainAnalyticsObject;
     const mergedValues = mergeAdobeObjects(
       mainAnalyticsObjectToValidate,
-      specificAnalyticsAttributes,
+      specificAnalyticsAttributes
     );
     let report = reportNumber;
     if (report === null) {
-      if (mergedValues.hasOwnProperty('pageName')) {
+      if (mergedValues.hasOwnProperty("pageName")) {
         report = `${mergedValues.pageName}`;
       } else {
         report = mergedValues[otherProperty];
@@ -143,7 +173,7 @@ Cypress.Commands.add(
       cy.waitForAdobeCall(report, timeOut);
     }
     return cy.assertAdobeDataFromUrl(alias, mergedValues, report);
-  },
+  }
 );
 /* OUTPUT
 console.log(values);

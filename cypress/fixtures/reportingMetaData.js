@@ -18,6 +18,20 @@ export const homePageInfoPageLoadData = {
   events: eventVariable()
 }
 
+export const productListingPageLoadData = {
+  pageName: "web|makeup|product listing page",
+  v63: "web|makeup|product listing page",
+  v66: "https://www.myglamm.com/buy/makeup",
+  oid: "https://www.myglamm.com/buy/makeup",
+  c40: 'desktop website',
+  c1: 'product listing',
+  c3: "home",
+  c4: "web|home|homepage",
+  c11: "https://www.myglamm.com/buy/makeup",
+  c14: "category",
+  events: /event38,event6=\d+,event1=\d+,event15=\d+.+event24$/m
+}
+
 export const surveyPageInfoPageLoadData = {
   pageName: 'web|myglammxo|surveypage',
   v63: 'web|myglammxo|surveypage',
