@@ -11,6 +11,8 @@
     "test:serve": "npm run start:websocket & npm start",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
+    "cy:run:component": "cypress run --component",
+    "cy:open:component": "cypress open --component",
     "test:e2e": "start-server-and-test test:serve http-get://localhost:3000 'cy:run'",
     "test:e2e:debug": "start-server-and-test test:serve http-get://localhost:3000 'cy:open'"
 
