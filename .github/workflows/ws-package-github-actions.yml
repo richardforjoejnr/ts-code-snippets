@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Websocket mock sever with Cypress
+run-name: ${{ github.actor }} ws mock server with cypress 🚀
 on:
   push:
     branches: [ master ]
