@@ -1,7 +1,7 @@
 // Import the updatePersonDetails function from a local module.
 import { updatePersonDetails } from './response/updatePersonDetails';
 
-// Define the WebSocket server URL for testing.
+// Define the WebSocket server URL for testing. should match the server URL in the wsServer.
 const serverURL = 'ws://127.0.0.1:8013';
 
 // Function to send JSON data to a WebSocket server.

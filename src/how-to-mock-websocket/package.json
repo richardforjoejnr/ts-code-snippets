@@ -7,7 +7,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:websocket": "node webSocketServer/dugoutServer.js",
+    "start:websocket": "node webSocketServer/webSocketServer.js",
     "test:serve": "npm run start:websocket & npm start",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
