@@ -40,7 +40,6 @@ jobs:
     - name: Run Cypress component tests
       uses: cypress-io/github-action@v6
       with:
-        install: false
         start: npm run cy:run:component
         working-directory: src/how-to-mock-websocket
   e2e_tests:
