@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         working-directory: src/how-to-mock-websocket
       - name: Run unit tests
         run: npm test
@@ -35,7 +35,7 @@ jobs:
       with:
         node-version: '20'
     - name: Install dependencies
-      run: npm ci
+      run: npm install
       working-directory: src/how-to-mock-websocket
     - name: Run Cypress component tests
       uses: cypress-io/github-action@v6
