@@ -1,0 +1,64 @@
+{
+  "name": "my-ws-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start:websocket": "node webSocketServer/webSocketServer.js",
+    "test:serve": "npm run start:websocket & npm start",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "cy:run:component": "cypress run --component",
+    "cy:open:component": "cypress open --component",
+    "test:e2e": "start-server-and-test test:serve http-get://localhost:3000 'cy:run'",
+    "test:e2e:debug": "start-server-and-test test:serve http-get://localhost:3000 'cy:open'"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardforjoesky/ts-code-snippets.git"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "express": "^4.19.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "start-server-and-test": "^2.0.3",
+    "web-vitals": "^2.1.4",
+    "ws": "^8.16.0"
+  },
+  "author": "richard forjoe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardforjoesky/ts-code-snippets/issues"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cypress": "^13.7.1",
+    "typescript": "^4.9.5",
+    "wait-on": "^7.2.0"
+  }
+}
