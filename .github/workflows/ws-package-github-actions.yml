@@ -1,66 +1,62 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
-    push:
-      branches: [ master ]
-    pull_request:
-      branches: [ master ]
+  push:
+    branches: [ master ]
+    paths:
+      - 'src/how-to-mock-websocket/**' # Run workflow for any changes in the /src/how-to-mock-websocket directory
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'src/how-to-mock-websocket/**' # Run workflow for any changes in the /src/how-to-mock-websocket directory
 
 jobs:
   unit_tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Install dependencies
-        run: npm install
-        working-directory: ./src/how-to-mock-websocket
+        run: npm ci
+        working-directory: src/how-to-mock-websocket
       - name: Run unit tests
         run: npm test
-        working-directory: ./src/how-to-mock-websocket
+        working-directory: src/how-to-mock-websocket
   component_tests:
     needs: unit_tests
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-
+    - uses: actions/checkout@v4
     - name: Use Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
-
     - name: Install dependencies
-      run: npm install
-      working-directory: ./src/how-to-mock-websocket
-
+      run: npm ci
+      working-directory: src/how-to-mock-websocket
     - name: Run Cypress component tests
-      uses: cypress-io/github-action@v2
+      uses: cypress-io/github-action@v6
       with:
-        start: npm run cy:run:component
-        working-directory: ./src/how-to-mock-websocket
-
+        install: false
+        start: npm run test:component
+        working-directory: src/how-to-mock-websocket
   e2e_tests:
     needs: unit_tests
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-
+    - uses: actions/checkout@v4
     - name: Use Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
-
     - name: Install dependencies
       run: npm install
-      working-directory: ./src/how-to-mock-websocket
-    
+      working-directory: src/how-to-mock-websocket
     - name: Run Cypress UI tests
-      uses: cypress-io/github-action@v2
+      uses: cypress-io/github-action@v6
       with:
-        start: npm run test:e2e
-        working-directory: ./src/how-to-mock-websocket
+        command: npm run test:e2e
+        working-directory: src/how-to-mock-websocket
