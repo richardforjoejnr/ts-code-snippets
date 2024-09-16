@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 /// <reference types="cypress" />
-import { homePageInfoPageLoadData, surveyPageInfoPageLoadData } from '../../fixtures/reportingMetaData';
+import { homePageInfoPageLoadData, productListingPageLoadData, globalVariablesMainObject } from '../../fixtures/reportingMetaData';
 
 const myglamm = `myglamm`; //
 describe('example reporting tests', () => {
@@ -14,14 +15,23 @@ describe('example reporting tests', () => {
   })
 
   it('Assert Pageload data when the page is loaded', () => {
-    cy.assertAdobeDataFromUrl(myglamm, homePageInfoPageLoadData,1)
+    cy.assertAdobeDataVariables(
+      myglamm,
+      globalVariablesMainObject(),
+      homePageInfoPageLoadData,
+    )
   })
 
-  // it('Assert Pageload data after clicking the survey', () => {
-  //   cy.get('[alt="SK Survey "]').click();
-  //   cy.assertAdobeDataFromUrl(myglamm, homePageInfoPageLoadData,2)
-  //   cy.assertAdobeDataFromUrl(myglamm, surveyPageInfoPageLoadData,3)
-  // })
+  it('Assert Product listing Pageload data when the page is loaded', () => {
+    cy.get(':nth-child(2) > .navlink > span').click()
+    cy.assertAdobeDataVariables(
+      myglamm,
+      globalVariablesMainObject(),
+      productListingPageLoadData,
+    )
+    
+  })
+
 
   
 
